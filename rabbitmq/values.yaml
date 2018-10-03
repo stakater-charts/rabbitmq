@@ -1,0 +1,13 @@
+rabbitmq:
+  labels:
+    group: com.stakater.platform
+    provider: stakater
+    version: 1.0.0
+  deployment:
+    replicas: 1
+    podLabels:      
+      app: rabbitmq
+    container:
+      name: rabbitmq
+      image: "jorgeacetozi/rabbitmq-stomp:latest"
+      port: 61613

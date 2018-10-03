@@ -1,0 +1,11 @@
+apiVersion: v1
+name: rabbitmq
+description: Helm Chart for RabbitMQ
+version: 1.0.0
+keywords:
+  - stakater
+  - rabbitmq
+home: https://github.com/stakater-charts/rabbitmq
+maintainers:
+- name: Stakater
+  email: stakater@aurorasolutions.io

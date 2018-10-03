@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+{{ include "rabbitmq.labels.stakater" . | indent 4 }}
+{{ include "rabbitmq.labels.chart" . | indent 4 }}
+  name: {{ template "rabbitmq.name" . }}
+spec:
+  replicas: {{ .Values.rabbitmq.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+{{ toYaml .Values.rabbitmq.deployment.podLabels | indent 8 }}
+    spec:
+      containers:
+      - name: {{ .Values.rabbitmq.deployment.container.name }}
+        image: {{ .Values.rabbitmq.deployment.container.image | quote }}
+        ports:
+        - containerPort: {{ .Values.rabbitmq.deployment.container.port }}
